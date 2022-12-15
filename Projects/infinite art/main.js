@@ -15,7 +15,7 @@ function createDepartmentList(departmentList){
     <select onchange="loadByDepartment(this.value)">
         <option>Choose a department of The Met</option>
         ${departmentList.map(function(obj){
-            return `<option>${Object.values(obj)[0]}${Object.values(obj)[1]}</option>`
+            return `<option>${Object.values(obj)[0]}: ${Object.values(obj)[1]}</option>`
         }
         ).join('')}
     </select>   
@@ -42,31 +42,60 @@ function getDepartmentId(departmentName){
 
 function getImgUrl(departmentData){
     let arrId = departmentData.objectIDs
-    return (getUrl(arrId[70])) // index need to be updated 
+    return (getUrl(arrId[3380])) // index need to be updated 
 }
 
 async function getUrl(objectID){
+    let currentPosition = 0;
     const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
     const data = await response.json()
-    console.log(data.primaryImage) // this gives back a string of the url of the index
-    // displayImage(data.primaryImage);
+    let objectID1 = objectID+1;
+    const response1 = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID1}`)
+    const data1 = await response1.json()
+    displayImage(data.primaryImage, data1.primaryImage)
+
+    currentPosition += 2
+    setInterval(nextSlide, 5000)
+
+    function nextSlide(){
+        document.getElementById("slideshow").insertAdjacentHTML("beforeend", `<div class="slide" style="background-image: url('${imgUrl1}')"></div>`)
+        setTimeout(()=>{
+            document.querySelector(".slide").remove()
+        }, 1000)
+
+    }
 }
 
-// function displayImage(imgUrl){
-//     document.getElementById("images").innerHTML = `
-//     <img src="${imgUrl}">
-//     `
+
+
+function displayImage(imgUrl1, imgUrl2){
+    console.log(imgUrl1); // this gives back a string of the url of the index
+    console.log(imgUrl2); // this gives back a string of the url of the index
+    document.getElementById("slideshow").innerHTML = `
+    <div class="slide" style="background-image: url('${imgUrl1}')"></div>
+    <div class="slide" style="background-image: url('${imgUrl2}')"></div>
+    `
+}
+
+// function getImgUrl(departmentData){
+//     let arrId = departmentData.objectIDs
+//     let currentPosition = 65;
+//     let imgUrl1 = getUrl(arrId[currentPosition])// index need to be updated 
+//     let imgUrl2 = getUrl(arrId[currentPosition+1])
+//     displayImage(imgUrl1, imgUrl2);
 // }
 
+// async function getUrl(objectID){
+//     const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+//     const data = await response.json()
+//     return data.primaryImage
+// }
 
-
-// function loadByDepartment(department){
-//     let selectedDepartmentObject = jsonData.map(function(a,c){
-//         if (Object.values(c)[1] === department){
-//             a.push(c)  
-//         }
-//         return a
-//     },[])[0];
-//     let departmentId = Objetc.values(selectedDepartmentObject)[0]
-//     alert("departmentId")
+// function displayImage(imgUrl1, imgUrl2){
+//     console.log(imgUrl1); // this gives back a string of the url of the index
+//     console.log(imgUrl2); // this gives back a string of the url of the index
+//     document.getElementById("slideshow").innerHTML = `
+//     <div class="slide" style="background-image: url('${imgUrl1}')"></div>
+//     <div class="slide" style="background-image: url('${imgUrl2}')"></div>
+//     `
 // }
