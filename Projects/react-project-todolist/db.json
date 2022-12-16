@@ -1,14 +1,14 @@
 {
   "tasks": [
     {
-      "text": "casreara",
-      "day": "adasdasd",
+      "text": "Go to school",
+      "day": "Tuesday 7:30 am",
       "reminder": true,
       "id": 1
     },
     {
-      "text": "sadsaf",
-      "day": "asfas",
+      "text": "Grocery shopping",
+      "day": "Thursday 8:30 pm",
       "reminder": true,
       "id": 2
     }
