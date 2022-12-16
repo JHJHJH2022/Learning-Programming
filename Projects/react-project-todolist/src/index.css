@@ -44,10 +44,6 @@ body {
   font-family: inherit;
 }
 
-.btn:focus {
-  outline: none;
-}
-
 .btn:active {
   transform: scale(0.98);
 }
@@ -112,4 +108,16 @@ body {
 footer {
   margin-top: 30px;
   text-align: center;
+}
+
+a{
+  color:azure;
+  font-size: 0.9rem;
+}
+a:hover{
+  color:orange
+}
+
+#about-content{
+text-align: center;
 }
