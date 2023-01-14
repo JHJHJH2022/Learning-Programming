@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* Begin Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img{
+  display: block;
+}
+
+/* End Reset */
+
+/* Utility Classese */
+.nowrap{
+  white-space:nowrap;
+}
+
+.offscreen{
+  position:absolute;
+  left:-10000px;
+}
+/* End Utility Classes */
+
+body {
+  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  background-color: aliceblue;
+  background-image: url(../img/bubbles.png),
+                    linear-gradient(to left,steelblue, white);
+  background-position: right, center;
+  background-repeat: repeat-y, no-repeat;
+}
+
+
+.example{
+  margin-top:1rem;
+  padding-left: 20px;
+  border: 1px solid red;
+}
+
+.example img{
+  width:25%;
+  height:auto;
+}
+
+.profile-pic-figure{
+  width:35%;
+  height: auto;
+}
+
+.profile-pic-figure img{
+  width:100%;
+  height: auto;
+  min-width: 100px;
+  border:5px double rgb(38, 37, 37);
+  border-radius: 50%;
+}
+
+.hero{
+  border-bottom: 2px solid black;
+  padding: 20px;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  background-color: rgba(0, 0, 0, 0.391);
+
+}
+
+.h1{
+  font-size: 500%;
+  color:white;
+  text-shadow: 2px 2px 5px black;
+  /* background-color: rgba(0, 0, 0, 0.395);
+  padding: 0.25rem;
+  border-radius: 10px;; */
+}
+
+.container{
+  background-color: rgb(251, 210, 156);
+  background-image: url('../img/scenic-2200x1331.png');
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.clip{
+  font-weight: 800;
+  font-size: 18rem;
+  text-align: center;
+  background-image: url('../img/scenic-2200x1331.png');
+  background-size: 100%;
+  text-transform: uppercase;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0.3);
+}
+
